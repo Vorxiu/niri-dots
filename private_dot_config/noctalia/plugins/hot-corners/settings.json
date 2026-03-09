@@ -1,0 +1,8 @@
+{
+  "corners": {
+    "TopLeft": "",
+    "BottomLeft": "qs -c noctalia-shell ipc call settings toggle",
+    "TopRight": "kitten quick-access-terminal",
+    "BottomRight": "qs -c noctalia-shell ipc call plugin:assistant-panel toggle"
+  }
+}

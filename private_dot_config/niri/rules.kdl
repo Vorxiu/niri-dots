@@ -1,0 +1,103 @@
+
+// Make the wallpaper stationary, rather than moving with workspaces.
+layer-rule {
+    match namespace="^wallpaper$"
+    match namespace="^quickshell$"
+    match namespace="dms:blurwallpaper"
+    place-within-backdrop true
+}
+layer-rule {
+    match namespace="waybar"
+    match at-startup=true  
+    block-out-from "screencast"
+    place-within-backdrop true
+}
+layer-rule {
+    match namespace="^notifications$"
+    block-out-from "screencast"
+}
+layer-rule {
+    match namespace="^rofi$"
+    shadow {
+        on
+    }
+
+}
+
+window-rule {
+    match app-id=r#"^org\.gnome\."#
+    draw-border-with-background false
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    match app-id="Alacritty"
+    match app-id="zen"
+    match app-id="com.mitchellh.ghostty"
+    match app-id="kitty"
+    draw-border-with-background false
+}
+
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+// Open these windows as floating by default
+window-rule {
+    match app-id=r#"org.quickshell$"#
+    match app-id="gsr-ui"
+    match app-id="pavucontrol"
+    match app-id="scrcpy"
+    match app-id="tuned-gui"
+    match title="Calculator"
+    match title="Open Files"
+    // Firefox/Chrome picture-in-picture
+    match title="^Picture-in-Picture$"
+    match title="Picture in picture"
+    open-floating true
+}
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
+}
+// Add a shadow for fuzzel.
+layer-rule {
+    match namespace="^fuzzel$"
+    shadow {
+        on
+    }
+
+}
+
+
+window-rule {
+    match is-floating=true
+    min-width 100
+    min-height 100
+}
+window-rule {
+    match title="^btop$"
+    default-column-width { proportion 0.6; }
+}
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+// layer-rule {
+//     match namespace="^launcher$"
+
+//     background-effect {
+//         blur true
+//     }
+// }

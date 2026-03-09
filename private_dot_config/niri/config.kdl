@@ -1,0 +1,15 @@
+// This config is in the KDL format: https://kdl.dev
+// Check the wiki for a full description of the configuration:
+// https://yalter.github.io/niri/Configuration:-Introduction
+
+
+include "./startup.kdl"
+include "./binds.kdl"
+include "./environment.kdl"
+include "./inputs.kdl"
+include "./outputs.kdl"
+include "./animations.kdl"
+include "./misc.kdl"
+include "./layout.kdl"
+include "./noctalia.kdl"
+include "./rules.kdl"
