@@ -1,0 +1,285 @@
+/* Tokyo Night Color Palette */
+@define-color red #f7768e;
+@define-color orange #ff9e64;
+@define-color yellow #e0af68;
+@define-color light-gray #cfc9c2;
+@define-color green #9ece6a;
+@define-color teal #73dacb;
+@define-color light-cyan #b4f9f8;
+@define-color cyan #2ac3de;
+@define-color light-blue #7dcfff;
+@define-color blue #7aa2f7;
+@define-color purple #bb9af7;
+@define-color light-purple #c0caf5;
+@define-color foreground #a9b1d6;
+@define-color comment #9aa5ce;
+@define-color dark-gray #565f89;
+@define-color darker-gray #414868;
+@define-color background #1a1b26;
+@define-color magenta #bb9af7;
+* {
+    background-color: transparent;
+        font-family: "JetBrainsMono", monospace;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 0;
+        margin: 0;
+    border: none;
+    box-shadow: none;
+        text-shadow: none;
+    }
+
+window#waybar {
+    background-color: alpha(@background, 1);
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0px;
+}
+
+.module {
+    padding: 8px 4px;
+    border: 0px;
+    border-radius: 6px;
+}
+
+.module:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.2s ease-out;
+}
+
+#main {
+    background-color: rgba(255, 255, 255, 0.07);
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+}
+
+#window,
+#clock,
+#tray {
+    background-color: transparent;
+}
+
+#clock {
+    color: @cyan;
+}
+
+#idle_inhibitor.activated {
+    color: @red;
+}
+
+#idle_inhibitor.deactivated {
+    color: @comment;
+}
+
+#custom-reboot {
+    color: @orange;
+}
+
+#custom-lock {
+    color: @cyan;
+}
+
+#custom-quit {
+    color: @yellow;
+}
+
+#mpris {
+    color: @comment;
+}
+
+#network {
+    color: @magenta;
+}
+
+#bluetooth {
+    color: @blue;
+}
+
+#custom-power {
+    color: @red;
+}
+#workspaces {
+    background: @background;
+        border-radius: 0px;
+        padding: 0;
+        margin: 0;
+        font-weight: normal;
+        font-style: normal;
+        opacity: 1;
+        font-size: 1px;
+}
+
+#workspaces button {
+    padding: 1px 1px;
+    margin: 1px 1px;
+    border-radius: 6px;
+    color: @blue;
+    background-color: @background;
+    transition: all 0.6s ease-out;
+    font-size: 1px;
+    opacity: 0.5;
+}
+
+#workspaces button:hover {
+    background-color: @background;
+    border-radius: 6px;
+    min-height: 40px;
+}
+
+#workspaces button.active {
+    color: @cyan;
+    padding: 1px 1px;
+    margin: 1px 1px;
+    border-radius: 6px;
+    background-color: @background;
+    transition: all 0.3s ease-in-out;
+    opacity: 1.0;
+}
+
+#custom-wlsunset {
+    color: @orange;
+}
+#custom-mako {
+    color: @red;
+}
+#tray {
+    color: @cyan;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+#privacy-item.screenshare,
+#privacy-item.audio-in,
+#privacy-item.audio-out,
+#custom-recorder {
+    color: @red;
+    animation-name: blink;
+    animation-duration: 2s;
+        animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#privacy-item.screenshare,
+#privacy-item.audio-in,
+#privacy-item.audio-out {
+    color: @cyan;
+}
+
+#power-profiles-daemon.performance {
+    color: @green;
+}
+
+#power-profiles-daemon.balanced {
+    color: @magenta;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @yellow;
+}
+
+#battery {
+    color: @purple;
+}
+
+#battery.almost-full {
+    color: @green;
+}
+
+#battery.good {
+    color: @purple;
+}
+
+#battery.warning {
+    color: @yellow;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#battery.charging {
+    color: @green;
+    animation: gradient_animation 3s ease infinite;
+    animation-direction: alternate;
+}
+
+@keyframes gradient_animation {
+    0% {
+        color: @green;
+    }
+
+                                25% {
+                                    color: @green;
+                                }
+
+                                60% {
+                                    color: rgb(180, 255, 120);
+                                }
+
+                                100% {
+                                    color: @green;
+                                }
+                                }
+                
+                                @keyframes blink {
+                                    to {
+                                        color: red;
+                                    }
+                                }
+                
+                                #power-profiles-daemon {
+                                    color: @foreground;
+}
+
+#battery.critical:not(.charging) {
+    /* background: @red; */
+    /* color: white; */
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#tray.needs-attention {
+    color: @red;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Tooltip styling for proper icon rendering */
+tooltip {
+    background: @background;
+    border-radius: 12px;
+}
+
+tooltip label {
+    color: @foreground;
+    margin: 5px;
+}
+
+menu {
+    border-radius: 16px;
+    padding: 12px;
+    background: @background;
+    /* transition: all 5s ease-in; */
+    color: @foreground;
+}
+
+menuitem {
+    border-radius: 32px;
+    color: @foreground;
+    padding: 8px 12px;
+}
+
+menuitem:hover {
+    background: @background;
+    color: @cyan;
+}

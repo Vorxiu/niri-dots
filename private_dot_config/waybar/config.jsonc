@@ -1,0 +1,323 @@
+{
+    "layer": "top",
+    "position": "left",
+    // "width": 42,
+    "margin-left": 0,
+    "margin-right": 0,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "spacing": 0,
+    "gtk-layer-shell": true,
+    "modules-left": [
+        "niri/workspaces",
+        "mpris"
+    ],
+    "modules-center": [
+        "niri/window"
+    ],
+    "modules-right": [
+        //"wireplumber",
+        "custom/recorder",
+        "privacy",
+        "tray",
+        "custom/mako",
+        "clock",
+        "group/main",
+        "group/group-power"
+    ],
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": " ",
+            "power-saver": ""
+        }
+    },
+    "clock": {
+        "format": "{:%H\n%M}",
+        "tooltip": true,
+        "tooltip-format": "{calendar}",
+        "on-click": "[ \"$(makoctl mode)\" = \"dnd\" ] && makoctl mode -r dnd || makoctl mode -s dnd ; pkill -RTMIN+2 waybar",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "format": {
+                "months": "<span color='#e0af68'><b>{}</b></span>",
+                "days": "<span color='#bb9af7'><b>{}</b></span>",
+                "weeks": "<span color='#9ece6a'><b>W{}</b></span>",
+                "weekdays": "<span color='#7aa2f7'><b>{}</b></span>",
+                "today": "<span color='#f7768e'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    "image#logo": {
+        "path": "/home/vorxiu/dotfiles/waybar/.config/waybar/niri.svg",
+        "size": 24,
+        "interval": 5,
+        "on-click": "mpc toggle"
+    },
+    "group/main": {
+        "orientation": "vertical",
+        "modules": [
+            "network",
+            "bluetooth",
+            "group/battery",
+        ]
+    },
+    "group/battery": {
+        "orientation": "vertical",
+        "drawer": {
+            "transition-duration": 400,
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "battery",
+            "custom/wlsunset",
+            "idle_inhibitor",
+            "power-profiles-daemon"
+        ]
+    },
+    "idle_inhibitor": {
+        "markup": true,
+        "format": "{icon}",
+        "tooltip": false,
+        "format-icons": {
+            "activated": "󰅶",
+            "deactivated": "󰛊"
+        }
+    },
+    "niri/window": {
+        "format": "{title}",
+        "rotate": 90,
+        "max-length": 30,
+        "min-length": 10,
+        "rewrite": {
+            "(.*) - Mozilla Firefox": "🌎 $1",
+            "(.*) - zsh": "> [$1]"
+        }
+    },
+    "niri/workspaces": {
+        "format": " {icon} ",
+        "format-icons": {
+            "active": "󰮯",
+            "default": ""
+        }
+    },
+    "mpris": {
+        "format": "{artist}-{title}",
+        "format-playing": "󰏤 {artist}-{title}",
+        "format-paused": "󰐊 {artist}-{title}",
+        "rotate": 90,
+        "max-length": 20,
+        "min-length": 10,
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl previous",
+        "on-scroll-down": "playerctl next",
+        "tooltip": false
+    },
+    "battery": {
+        "states": {
+            "almost-full": 95,
+            "good": 80,
+            "warning": 40,
+            "critical": 20
+        },
+        "format": "{icon}",
+        "format-alt": "{capacity}%",
+        "format-plugged": "{󰂄}",
+        "tooltip-format": "<tt>󰁹 {capacity}%\n {power}W\n {time}</tt>",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+        "tooltip": true
+    },
+    "network": {
+        "format-wifi": "{icon} ",
+        "format-ethernet": "󰈀",
+        "format-icons": [
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤨"
+        ],
+        "format-disconnected": "󰪎",
+        "on-click": "uwsm-app -- kitty -e nmtui",
+        "interval": 2,
+        "tooltip": true,
+        "tooltip-format": "<tt>{ifname} via {gwaddr} \nSSID: {essid}   Signal: {signalStrength}%\nDown: {bandwidthDownBytes}/s   Up: {bandwidthUpBytes}/s\nIP: {ipaddr} </tt>"
+    },
+
+    "bluetooth": {
+        "markup": true,
+        "format": "{icon}",
+        "format-disabled": "",
+        "format-connected": "󰂱",
+        "format-alt-connected": "󰂱",
+        "format-connected-battery": "󰋋",
+        "on-click-right": "blueman-manager",
+        "format-icons": [
+            "",
+            "󰤾",
+            "󰥀",
+            "󰥄",
+            "󰥈"
+        ],
+        "tooltip-format": "󰂯 {controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    },
+    "custom/wlsunset": {
+        "interval": "once",
+        "exec": "if systemctl --user is-active --quiet wlsunset.service; then stdbuf -oL printf '{\"alt\": \"on\"}'; else stdbuf -oL printf '{\"alt\": \"off\"}'; fi",
+        "on-click": "systemctl --user is-active --quiet wlsunset.service && systemctl --user stop wlsunset.service || systemctl --user start wlsunset.service",
+        "signal": 1,
+        "return-type": "json",
+        "format": "{icon}",
+        "tooltip-format": "wlsunset: {alt}",
+        "format-icons": {
+            "off": "  ",
+            "on": "  "
+        }
+    },
+    "custom/mako": {
+        "exec": "makoctl mode | grep -q dnd && echo '{\"alt\":\"activated\",\"class\":[\"activated\"]}' || echo '{\"alt\":\"deactivated\",\"class\":[\"deactivated\"]}'",
+        "on-click": "[ \"$(makoctl mode)\" = \"dnd\" ] && makoctl mode -r dnd || makoctl mode -s dnd; pkill -RTMIN+2 waybar",
+        "interval": "once",
+        "signal": 2,
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": ""
+        },
+        "tooltip": true,
+        "tooltip-format": "Toggle DND on/off"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-alt": " {icon}\n{percent}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip": false,
+        "on-click-right": "~/.config/waybar/scripts/sunset-toggle.sh"
+    },
+    "wireplumber": {
+        "format": "{icon}",
+        "format-alt": " {icon}\n{volume}",
+        "format-icons": [
+            "",
+            "󰪞",
+            "󰪟",
+            "󰪠",
+            "󰪡",
+            "󰪢",
+            "󰪣",
+            "󰪤",
+            "󰪥"
+        ],
+        "format-muted": "",
+        "max-volume": 99,
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-middle": "blueman-manager"
+    },
+    "tray": {
+        // "icon-size": 22,
+        "spacing": 8
+    },
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 14,
+        "transition-duration": 200,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 14
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 14
+            }
+        ],
+        "ignore-monitor": true,
+        "ignore": [
+            {
+                "type": "audio-in",
+                "name": "cava"
+            }
+        ]
+    },
+    "group/group-power": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "custom/power", // First element is the "group leader" and won't ever be hidden
+            "custom/quit",
+            "custom/lock",
+            "custom/reboot",
+        ]
+    },
+    "custom/quit": {
+        "format": "󰗼",
+        "tooltip": false,
+        "on-click": "niri msg quit"
+    },
+    "custom/lock": {
+        "format": "󰍁",
+        "tooltip": false,
+        "on-click": "pidof hyprlock || hyprlock"
+    },
+    "custom/reboot": {
+        "format": "󰜉",
+        "tooltip": false,
+        "on-click": "systemctl reboot"
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "systemctl sleep"
+    },
+    "custom/recorder": {
+        "format": "{icon} ",
+        "format-icons": [
+            "",
+        ],
+        "return-type": "json",
+        "interval": 5,
+        "exec": "echo '{\"class\": \"recording\"}'",
+        "exec-if": "pgrep wf-recorder",
+        "tooltip": false,
+        "on-click": "killall -s SIGINT wf-recorder",
+    }
+}
