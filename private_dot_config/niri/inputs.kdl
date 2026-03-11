@@ -4,7 +4,7 @@ input {
         xkb {
             // You can set rules, model, layout, variant and options.
             // For more information, see xkeyboard-config(7).
-            //  options "caps:escape"
+            //  options "caps:escape_shifted_caps"
 
             // For example:
             // layout "us,ru"

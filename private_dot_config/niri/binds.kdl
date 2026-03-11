@@ -2,7 +2,7 @@ binds {
 
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
-    // Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Return hotkey-overlay-title="Quake terminal" { spawn "kitten" "quick-access-terminal"; }
@@ -36,11 +36,11 @@ binds {
     Mod+Alt+R { spawn-sh "~/.config/niri/scripts/niri-sidebar reorder"; }
     // Mod+N hotkey-overlay-title="Notification Center" {spawn "dms" "ipc" "call" "notifications" "toggle";}
     //hide waybar
-    // Mod+Shift+W hotkey-overlay-title="Toggle waybar" { spawn-sh "killall -USR1 waybar"; }
+    // Mod+Shift+W hotkey-overlay-title="Toggle waybar" { spawn-sh "killall W-USR1 waybar"; }
     //turn off notifcations
     Mod+Shift+N hotkey-overlay-title="Toggle notifications" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory";}
 
-    Mod+Alt+L hotkey-overlay-title="Lock Screen" {spawn "qs -c noctalia-shell ipc call lockScreen lock";}
+    Mod+Alt+L hotkey-overlay-title="Lock Screen" {spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock";}
 
     XF86Display { screenshot; }
     Mod+Shift+S { screenshot; }
