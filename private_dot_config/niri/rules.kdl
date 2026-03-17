@@ -21,13 +21,12 @@ layer-rule {
     shadow {
         on
     }
-
 }
 
 window-rule {
     match app-id=r#"^org\.gnome\."#
     draw-border-with-background false
-    geometry-corner-radius 12
+    geometry-corner-radius 20
     clip-to-geometry true
 }
 
@@ -55,6 +54,8 @@ window-rule {
     match app-id="tuned-gui"
     match title="Calculator"
     match title="Open Files"
+    match title="Save As"
+    match title="Select a Folder"
     match title="Save File"
     match app-id="localsend"
     match app-id="it.ublue.Yafti"
