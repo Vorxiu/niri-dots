@@ -39,3 +39,6 @@ layout {
     }
     background-color "transparent"
 }
+overview {
+    backdrop-color "#15121a"
+}
