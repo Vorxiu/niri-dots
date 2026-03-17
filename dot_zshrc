@@ -35,8 +35,6 @@ zinit wait lucid for \
     zsh-users/zsh-autosuggestions
 
 
-
-
 zinit load redxtech/zsh-kitty
 
 zinit ice depth=1
@@ -128,9 +126,10 @@ fi
 if (( $+commands[eza] )); then
   alias ls='eza --icons=auto --hyperlink --smart-group --group-directories-first'
   zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=never --hyperlink --group-directories-first --icons=auto $realpath'
+  zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -1 --color=never --hyperlink --group-directories-first --icons=auto $realpath'
 fi
 
-# Shell integrations
+# Shell integrations  
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh --cmd  cd)"
 
@@ -144,6 +143,5 @@ if (( $+commands[brew] )); then
   require "eza" "brew install eza" "brew"
   require "fzf" "brew install fzf" "brew"
   require "bat" "brew install bat" "brew"
-  require "nvim" "brew install neovim" "brew"
   require "bbrew" "brew install Valkyrie00/homebrew-bbrew/bbrew" "brew"
 fi
