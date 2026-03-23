@@ -11,11 +11,11 @@ binds {
     Mod+Shift+Return hotkey-overlay-title="Open distrobox container" { spawn-sh "kitty -e distrobox enter $(distrobox list | awk -F'|' 'NR>1 {print $2}' | fuzzel -d)"; }
 
     // Core Noctalia bind
-    Mod+Space { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Space hotkey-overlay-title="Open launcher" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     // Mod+Space { spawn "qs -c noctalia-shell ipc call launcher toggle"; }
 
-    Mod+S { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
-    Mod+Comma { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+    Mod+S hotkey-overlay-title="Open control Center" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
+    Mod+Comma hotkey-overlay-title="Open settings" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
 
     Mod+semicolon hotkey-overlay-title="Open emoji picker" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; } // use the flatpak com.github.hluk.copyq
     Mod+B hotkey-overlay-title="Open web browser" { spawn "xdg-open" "https://"; }
@@ -38,7 +38,7 @@ binds {
     //hide waybar
     // Mod+Shift+W hotkey-overlay-title="Toggle waybar" { spawn-sh "killall W-USR1 waybar"; }
     //turn off notifcations
-    Mod+Shift+N hotkey-overlay-title="Toggle notifications" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory";}
+    Mod+Shift+N hotkey-overlay-title="Toggle notifications Center" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory";}
 
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock";}
 
@@ -234,9 +234,9 @@ binds {
     // This bind corresponds to normal window maximizing,
     // e.g. by double-clicking on the titlebar.
     Mod+M { maximize-window-to-edges; }
-    Mod+Ctrl+escape hotkey-overlay-title="Task Manager" {spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle";}
-    Mod+Shift+escape hotkey-overlay-title="Task Manager" {spawn-sh "qs -c noctalia-shell ipc call systemMonitor toggle";}
-    XF86PowerOff hotkey-overlay-title="Power Menu" {spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle";}
+    Mod+Ctrl+escape hotkey-overlay-title="Session Menu" {spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle";}
+    Mod+Shift+escape hotkey-overlay-title="System Monitor" {spawn-sh "qs -c noctalia-shell ipc call systemMonitor toggle";}
+    XF86PowerOff {spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle";}
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
     Mod+Ctrl+F { expand-column-to-available-width; }
