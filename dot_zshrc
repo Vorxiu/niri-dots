@@ -45,6 +45,7 @@ zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::qrcode
+zinit snippet OMZP::colored-man-pages
 
 ls_after_cd() {
   if (( $+commands[eza] )); then
