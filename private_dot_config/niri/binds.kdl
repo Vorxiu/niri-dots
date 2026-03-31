@@ -12,7 +12,6 @@ binds {
 
     // Core Noctalia bind
     Mod+Space hotkey-overlay-title="Open launcher" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    // Mod+Space { spawn "qs -c noctalia-shell ipc call launcher toggle"; }
 
     Mod+S hotkey-overlay-title="Open control Center" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
     Mod+Comma hotkey-overlay-title="Open settings" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
@@ -20,7 +19,7 @@ binds {
     Mod+semicolon hotkey-overlay-title="Open emoji picker" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; } // use the flatpak com.github.hluk.copyq
     Mod+B hotkey-overlay-title="Open web browser" { spawn "xdg-open" "https://"; }
     Mod+E hotkey-overlay-title="Open file manager: nautilus" { spawn "nautilus"; }
-    Mod+Shift+C hotkey-overlay-title="Open code editor: code" { spawn "code"; } // may want to change it 
+    Mod+C hotkey-overlay-title="Open code editor: code" { spawn "code"; } // may want to change it 
     Mod+P hotkey-overlay-title="Color picker: " { spawn-sh "niri msg pick-color | grep -oP 'Hex: \\K#[0-9a-fA-F]+' | wl-copy"; }
 
     Mod+Shift+M hotkey-overlay-title="Open spotify" { spawn "python3" "$HOME/.config/niri_spawnjump.py" "flatpak" "run" "com.spotify.Client";}
@@ -34,10 +33,7 @@ binds {
     Mod+Ctrl+A { spawn-sh "~/.config/niri/scripts/niri-sidebar focus"; }
     // Force reorder (useful if something gets misaligned manually)
     Mod+Alt+R { spawn-sh "~/.config/niri/scripts/niri-sidebar reorder"; }
-    // Mod+N hotkey-overlay-title="Notification Center" {spawn "dms" "ipc" "call" "notifications" "toggle";}
-    //hide waybar
-    // Mod+Shift+W hotkey-overlay-title="Toggle waybar" { spawn-sh "killall W-USR1 waybar"; }
-    //turn off notifcations
+
     Mod+Shift+N hotkey-overlay-title="Toggle notifications Center" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory";}
 
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock";}
@@ -49,9 +45,9 @@ binds {
     Mod+Shift+XF86Display { screenshot-screen; }
   
     // Audio & Brightness
-    XF86AudioRaiseVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
-    XF86AudioLowerVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
-    XF86AudioMute { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+    XF86AudioMute  allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     // This will work with any MPRIS-enabled media player.
@@ -60,8 +56,8 @@ binds {
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
 
-    XF86MonBrightnessUp { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"; }
-    XF86MonBrightnessDown { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+    XF86MonBrightnessUp  allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"; }
+    XF86MonBrightnessDown  allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
@@ -241,7 +237,7 @@ binds {
     // Makes the column "fill the rest of the space".
     Mod+Ctrl+F { expand-column-to-available-width; }
 
-    Mod+C { center-column; }
+    Mod+shift+C { center-column; }
 
     // Center all fully visible columns on screen.
     Mod+Ctrl+C { center-visible-columns; }
@@ -264,6 +260,8 @@ binds {
     // Move the focused window between the floating and the tiling layout.
     Mod+Ctrl+V     { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+shift+O { switch-focus-between-floating-and-tiling; }
+
 
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
@@ -294,7 +292,7 @@ binds {
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
+    // Ctrl+Alt+Delete { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
