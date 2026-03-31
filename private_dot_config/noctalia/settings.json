@@ -582,7 +582,7 @@
         "diskCriticalThreshold": 90,
         "diskWarningThreshold": 80,
         "enableDgpuMonitoring": false,
-        "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor",
+        "externalMonitor": "resources || missioncenter || kitty -e btop || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor",
         "gpuCriticalThreshold": 90,
         "gpuWarningThreshold": 80,
         "memCriticalThreshold": 90,
@@ -628,8 +628,8 @@
         "panelBackgroundOpacity": 0.96,
         "panelsAttachedToBar": true,
         "settingsPanelMode": "attached",
-        "settingsPanelSideBarCardStyle": false,
-        "tooltipsEnabled": false
+        "settingsPanelSideBarCardStyle": true,
+        "tooltipsEnabled": true
     },
     "wallpaper": {
         "automationEnabled": false,
@@ -652,7 +652,7 @@
             }
         ],
         "fillColor": "#24283b",
-        "fillMode": "crop",
+        "fillMode": "stretch",
         "hideWallpaperFilenames": false,
         "monitorDirectories": [
         ],
@@ -663,7 +663,7 @@
         "randomIntervalSec": 300,
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
-        "skipStartupTransition": true,
+        "skipStartupTransition": false,
         "solidColor": "#1a1b26",
         "sortOrder": "name",
         "transitionDuration": 1500,
@@ -676,7 +676,7 @@
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
-        "wallhavenQuery": "t",
+        "wallhavenQuery": "",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",
