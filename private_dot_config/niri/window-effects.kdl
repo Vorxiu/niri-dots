@@ -1,18 +1,9 @@
-
-// Enable blur behind windoes.
+// Enable blur behind windows.
 window-rule {
     match app-id=""
-    opacity 0.9
+    opacity 0.86
     background-effect {
         blur true
-    }
-}
-window-rule {
-    match app-id=""
-    is-floating true
-    opacity 0.9
-    background-effect {
-        xray false
     }
 }
 
@@ -24,7 +15,23 @@ layer-rule {
         blur true
     }
 }
-
+window-rule {
+    match app-id=""
+    opacity 0.8
+    match is-floating=true
+    background-effect {
+        xray false
+    }
+    shadow {
+        // on
+        on
+        softness 40
+        spread 5
+        offset x=0 y=5
+        draw-behind-window true
+        inactive-color "#00000100"
+    }
+}
 blur {
     // off
     passes 3
@@ -33,6 +40,7 @@ blur {
     saturation 1.6
 }
 
+
 layer-rule {
   match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
   match namespace="kitty-quick-access"
@@ -40,4 +48,30 @@ layer-rule {
   background-effect {
     xray false
   }
+  shadow {
+    on
+    softness 40
+    spread 5
+    offset x=0 y=5
+    draw-behind-window true
+    inactive-color "#00000100"
+  }
+}
+
+layout {
+    gaps 8
+    shadow {
+        on
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+}
+animations {
+    on
+}
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
 }

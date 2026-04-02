@@ -12,7 +12,6 @@ layout {
         proportion 0.66667
     }
 
-
     // You can change the default width of the new windows.
     default-column-width { proportion 0.5; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
@@ -24,18 +23,12 @@ layout {
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
     shadow {
-        // on
-        // draw-behind-window true
-        softness 30
-        spread 5
-        offset x=0 y=5
-        color "#0007"
+        off
     }
 
     struts {
         // left 10
         // right 10
-
     }
     background-color "transparent"
 }

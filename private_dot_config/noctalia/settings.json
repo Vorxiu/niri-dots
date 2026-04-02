@@ -395,9 +395,9 @@
     },
     "hooks": {
         "darkModeChange": "",
-        "enabled": false,
-        "performanceModeDisabled": "",
-        "performanceModeEnabled": "",
+        "enabled": true,
+        "performanceModeDisabled": "echo 'include "./window-effects.kdl"' >> ~/.config/niri/config.kdl",
+        "performanceModeEnabled": "sed -i '\|include "./window-effects.kdl"|d' ~/.config/niri/config.kdl",
         "screenLock": "",
         "screenUnlock": "",
         "session": "",

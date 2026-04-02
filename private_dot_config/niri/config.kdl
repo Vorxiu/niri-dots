@@ -2,7 +2,7 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 
-
+// most window effects are present in the "window-effects.kdl" it gets removed and re added via a noctalia hook for performace mode.
 include "./startup.kdl"
 include "./binds.kdl"
 include "./environment.kdl"
