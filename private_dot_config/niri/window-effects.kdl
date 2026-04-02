@@ -7,6 +7,14 @@ window-rule {
         blur true
     }
 }
+window-rule {
+    match app-id=""
+    is-floating true
+    opacity 0.9
+    background-effect {
+        xray false
+    }
+}
 
 // Enable blur behind the fuzzel launcher.
 layer-rule {
