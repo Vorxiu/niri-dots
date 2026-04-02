@@ -67,7 +67,7 @@ binds {
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
-    Mod+Q repeat=false { spawn-sh "kill -9 $(niri msg --json pick-window | jq -r '.pid')"; } // force kill a window
+    Mod+Shift+Q repeat=false { spawn-sh "kill -9 $(niri msg --json pick-window | jq -r '.pid')"; } // force kill a window
 
 
     Mod+Left  { focus-column-left; }
@@ -262,7 +262,7 @@ binds {
 
     // Move the focused window between the floating and the tiling layout.
     Mod+Ctrl+V     { toggle-window-floating; }
-    Mod+Ctrl+F { toggle-window-floating; }
+    // Mod+Ctrl+F { toggle-window-floating; }
     Mod+Shift+Space     { toggle-window-floating; }
    
     alt+space { switch-focus-between-floating-and-tiling; }
