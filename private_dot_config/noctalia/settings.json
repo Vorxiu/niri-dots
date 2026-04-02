@@ -4,7 +4,7 @@
         "clipboardWatchImageCommand": "wl-paste --type image --watch cliphist store",
         "clipboardWatchTextCommand": "wl-paste --type text --watch cliphist store",
         "clipboardWrapText": true,
-        "customLaunchPrefix": "",
+        "customLaunchPrefix": "app2unit -- ",
         "customLaunchPrefixEnabled": false,
         "density": "default",
         "enableClipPreview": true,
@@ -325,7 +325,7 @@
         "pinnedStatic": false,
         "position": "bottom",
         "showDockIndicator": true,
-        "showLauncherIcon": false,
+        "showLauncherIcon": true,
         "sitOnFrame": true,
         "size": 1.5
     },
