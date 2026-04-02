@@ -28,9 +28,11 @@ binds {
 
     Mod+A { spawn-sh "~/.config/niri/scripts/niri-sidebar toggle-window"; }
     // Toggle sidebar visibility (hide/show)
-    Mod+Shift+A { spawn-sh "~/.config/niri/scripts/niri-sidebar toggle-visibility"; }
+    Mod+Ctrl+A { spawn-sh "~/.config/niri/scripts/niri-sidebar toggle-visibility"; }
     // Flip the order of the sidebar
-    Mod+Ctrl+A { spawn-sh "~/.config/niri/scripts/niri-sidebar focus"; }
+    Mod+Shift+A { switch-focus-between-floating-and-tiling; }
+
+    // Mod+Shift+A { spawn-sh "~/.config/niri/scripts/niri-sidebar focus"; }
     // Force reorder (useful if something gets misaligned manually)
     Mod+Alt+R { spawn-sh "~/.config/niri/scripts/niri-sidebar reorder"; }
 
@@ -260,8 +262,12 @@ binds {
 
     // Move the focused window between the floating and the tiling layout.
     Mod+Ctrl+V     { toggle-window-floating; }
+    Mod+Ctrl+F { toggle-window-floating; }
+    Mod+Shift+Space     { toggle-window-floating; }
+   
+    alt+space { switch-focus-between-floating-and-tiling; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-    Mod+shift+O { switch-focus-between-floating-and-tiling; }
+    Mod+alt+Space { switch-focus-between-floating-and-tiling; }
 
 
     // Toggle tabbed column display mode.
