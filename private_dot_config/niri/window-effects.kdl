@@ -1,0 +1,35 @@
+
+// Enable blur behind windoes.
+window-rule {
+    match app-id=""
+    opacity 0.9
+    background-effect {
+        blur true
+    }
+}
+
+// Enable blur behind the fuzzel launcher.
+layer-rule {
+    match namespace="^launcher$"
+    opacity 0.8
+    background-effect {
+        blur true
+    }
+}
+
+blur {
+    // off
+    passes 3
+    offset 3
+    noise 0.04
+    saturation 1.6
+}
+
+layer-rule {
+  match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
+  match namespace="kitty-quick-access"
+  opacity 0.8
+  background-effect {
+    xray false
+  }
+}
