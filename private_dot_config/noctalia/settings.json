@@ -648,7 +648,7 @@
                     "#f7768e"
                 ],
                 "path": "",
-                "useWallpaperColors": false
+                "useWallpaperColors": true
             }
         ],
         "fillColor": "#24283b",
