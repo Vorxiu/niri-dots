@@ -10,7 +10,7 @@ include "./kanso/outputs.kdl"
 include "./kanso/animations.kdl"
 include "./kanso/misc.kdl"
 include "./kanso/layout.kdl"
-include "./kanso/rules.kdl"
+include "./kanso/window-rules.kdl"
 include "./noctalia.kdl"
 // most window effects are present in the "window-effects.kdl" it gets removed and re added via a noctalia hook for performace mode.
 include "./kanso/window-effects.kdl"
