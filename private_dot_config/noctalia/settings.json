@@ -703,8 +703,8 @@
     "darkModeChange": "",
     "screenLock": "",
     "screenUnlock": "",
-    "performanceModeEnabled": "sed -i '\\|include \"./window-effects.kdl\"|d' ~/.config/niri/kanso/config.kdl",
-    "performanceModeDisabled": "echo 'include \"./window-effects.kdl\"' >> ~/.config/niri/kanso/config.kdl",
+    "performanceModeEnabled": "sed -i '\\|include \"./kanso/window-effects.kdl\"|d' ~/.config/niri/config.kdl",
+    "performanceModeDisabled": "echo 'include \"./kanso/window-effects.kdl\"' >> ~/.config/niri/config.kdl",
     "startup": "",
     "session": "",
     "colorGeneration": ""
