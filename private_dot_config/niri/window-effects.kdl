@@ -1,7 +1,6 @@
 // Enable blur behind windows.
 window-rule {
-    match app-id=""
-    opacity 0.86
+    opacity 0.9
     background-effect {
         blur true
     }
@@ -11,7 +10,7 @@ window-rule {
 layer-rule {
     match namespace="^launcher$"
 
-    opacity 0.8
+    opacity 0.86
     background-effect {
         blur true
         xray false
@@ -21,8 +20,7 @@ layer-rule {
       }
 }
 window-rule {
-    match app-id=""
-    opacity 0.8
+    opacity 0.86
     match is-floating=true
     background-effect {
         xray false
@@ -46,17 +44,19 @@ blur {
 
 layer-rule {
   match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
-  match namespace="kitty-quick-access"
-  opacity 0.8
   background-effect {
     xray false
   }
 }
 
 layer-rule {
-  match namespace="kitty-quick-accesss"
+  match namespace="kitty-quick-access"
+  opacity 0.8
   shadow {
     on
+    }
+    background-effect {
+    xray false
     }
 }
 
