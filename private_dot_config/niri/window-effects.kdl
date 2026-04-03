@@ -10,10 +10,15 @@ window-rule {
 // Enable blur behind the fuzzel launcher.
 layer-rule {
     match namespace="^launcher$"
+
     opacity 0.8
     background-effect {
         blur true
+        xray false
     }
+    shadow {
+      on
+      }
 }
 window-rule {
     match app-id=""
@@ -23,7 +28,6 @@ window-rule {
         xray false
     }
     shadow {
-        // on
         on
         softness 40
         spread 5
@@ -40,7 +44,6 @@ blur {
     saturation 1.6
 }
 
-
 layer-rule {
   match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
   match namespace="kitty-quick-access"
@@ -48,18 +51,17 @@ layer-rule {
   background-effect {
     xray false
   }
+}
+
+layer-rule {
+  match namespace="kitty-quick-accesss"
   shadow {
     on
-    softness 40
-    spread 5
-    offset x=0 y=5
-    draw-behind-window true
-    inactive-color "#00000100"
-  }
+    }
 }
 
 layout {
-    gaps 8
+    gaps 12
     shadow {
         on
         softness 30
@@ -68,10 +70,7 @@ layout {
         color "#0007"
     }
 }
-animations {
-    on
-}
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 20
     clip-to-geometry true
 }

@@ -4,7 +4,7 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "app2unit kitty"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "app2unit" "kitty"; }
     Mod+Return hotkey-overlay-title="Quake terminal" { spawn "kitten" "quick-access-terminal"; }
 
     Mod+Shift+T hotkey-overlay-title="Open distrobox container" { spawn-sh "app2unit -- kitty -e distrobox enter $(distrobox list | awk -F'|' 'NR>1 {print $2}' | fuzzel -d)"; }
