@@ -1,11 +1,13 @@
 // Enable blur behind windows.
 window-rule {
-    opacity 0.9
+    opacity 0.87
     background-effect {
         blur true
     }
 }
-
+animations {
+    on
+}
 // Enable blur behind the fuzzel launcher.
 layer-rule {
     match namespace="^launcher$"
