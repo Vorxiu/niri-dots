@@ -43,7 +43,13 @@ input {
         accel-profile "flat"
         // scroll-method "no-scroll"
     }
-
+gestures {
+    // Increase the trigger area and maximum speed.
+    dnd-edge-workspace-switch {
+        trigger-height 100
+        max-speed 3000
+    }
+}
     // warp-mouse-to-focus
     disable-power-key-handling
     // Focus windows and outputs automatically when moving the mouse into them.

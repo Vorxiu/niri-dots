@@ -1,5 +1,6 @@
 hotkey-overlay {
     // skip-at-startup
+    hide-not-bound
 }
 cursor {
     hide-when-typing
@@ -23,4 +24,13 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 debug {
   // Allows notification actions and window activation from Noctalia.
   honor-xdg-activation-with-invalid-serial
+}
+recent-windows {
+    // Round the corners on the highlight.
+    highlight {
+        corner-radius 20
+    }
+    previews {
+        max-height 320
+    }
 }

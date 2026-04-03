@@ -60,6 +60,10 @@ window-rule {
     match title="Picture in picture"
     open-floating true
 }
+window-rule {
+    title="^Picture-in-Picture$"
+    default-floating-position x=32 y=32 relative-to="bottom-left"
+}
 
 window-rule {
     match is-floating=true
