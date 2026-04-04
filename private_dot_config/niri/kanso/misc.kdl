@@ -31,6 +31,20 @@ recent-windows {
         corner-radius 20
     }
     previews {
-        max-height 320
+        max-height 240
+    }
+}
+layer-rule {
+  match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
+  background-effect {
+    xray false
+  }
+}
+
+layer-rule {
+  match namespace="kitty-quick-access"
+  opacity 0.9
+    background-effect {
+    xray false
     }
 }
