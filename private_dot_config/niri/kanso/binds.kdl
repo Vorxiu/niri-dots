@@ -12,7 +12,6 @@ binds {
 
     // Core Noctalia bind
     Mod+Space hotkey-overlay-title="Open launcher" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-
     Mod+S hotkey-overlay-title="Open control Center" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
     Mod+Comma hotkey-overlay-title="Open noctalia settings" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
 
@@ -26,6 +25,7 @@ binds {
     Mod+V hotkey-overlay-title="Clipboard Manager" { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard";}
     Mod+Shift+M hotkey-overlay-title="Opens spotify" { spawn "python3" "$HOME/.config/niri_spawnjump.py" "flatpak" "run" "com.spotify.Client";}
 
+    Mod+Shift+G hotkey-overlay-title="Toggle performance mode" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "powerProfile" "toggleNoctaliaPerformance"; }
     Mod+A { spawn-sh "~/.config/niri/scripts/niri-sidebar toggle-window"; }
     // Toggle sidebar visibility (hide/show)
     Mod+Ctrl+A { spawn-sh "~/.config/niri/scripts/niri-sidebar toggle-visibility"; }
