@@ -654,7 +654,7 @@
   },
   "colorSchemes": {
     "useWallpaperColors": true,
-    "predefinedScheme": "Tokyo Night",
+    "predefinedScheme": "",
     "darkMode": true,
     "schedulingMode": "off",
     "manualSunrise": "06:30",
@@ -686,7 +686,7 @@
         "id": "gtk"
       }
     ],
-    "enableUserTheming": false
+    "enableUserTheming": true
   },
   "nightLight": {
     "enabled": true,
@@ -699,7 +699,7 @@
   },
   "hooks": {
     "enabled": true,
-    "wallpaperChange": "",
+    "wallpaperChange": "sed -i \"s|^background=.*|background=$(qs -c noctalia-shell ipc call wallpaper get '')|\" /usr/share/sddm/themes/sddm-noctalia/*.conf",
     "darkModeChange": "",
     "screenLock": "",
     "screenUnlock": "",
