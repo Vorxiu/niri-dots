@@ -699,13 +699,13 @@
   },
   "hooks": {
     "enabled": true,
-    "wallpaperChange": "sed -i \"s|^background=.*|background=$(qs -c noctalia-shell ipc call wallpaper get '')|\" /usr/share/sddm/themes/sddm-noctalia/*.conf",
+    "wallpaperChange": "sed -i \"s|^background=.*|background=$(qs -c noctalia-shell ipc call wallpaper get '')|\" /etc/sddm/themes/sddm-noctalia/*.conf",
     "darkModeChange": "",
     "screenLock": "",
     "screenUnlock": "",
     "performanceModeEnabled": "sed -i '\\|include \"./kanso/window-effects.kdl\"|d' ~/.config/niri/config.kdl",
     "performanceModeDisabled": "echo 'include \"./kanso/window-effects.kdl\"' >> ~/.config/niri/config.kdl",
-    "startup": "",
+    "startup": "qs -c noctalia-shell ipc call powerProfile disableNoctaliaPerformance",
     "session": "",
     "colorGeneration": ""
   },

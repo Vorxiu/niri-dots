@@ -16,5 +16,5 @@
 #output_path = "/home/vorxiu/.cache/noctalia/placeholder.json"
 
 [templates.sddm-noctalia]
-input_path = "/usr/share/sddm/themes/sddm-noctalia/template.conf"
-output_path = "/usr/share/sddm/themes/sddm-noctalia/theme.conf"
+input_path = "/etc/sddm/themes/sddm-noctalia/template.conf"
+output_path = "/etc/sddm/themes/sddm-noctalia/theme.conf"
