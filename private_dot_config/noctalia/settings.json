@@ -146,7 +146,7 @@
           "clockColor": "none",
           "customFont": "Adwaita Sans",
           "formatHorizontal": "h:mm AP  ddd, MMM dd",
-          "formatVertical": "d — h mm ap",
+          "formatVertical": "dd — hh mm ap",
           "id": "Clock",
           "tooltipFormat": "HH:mm AP ddd, MMM dd",
           "useCustomFont": false
