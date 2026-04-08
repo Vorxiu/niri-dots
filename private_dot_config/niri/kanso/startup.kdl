@@ -4,7 +4,7 @@ spawn-at-startup "wl-paste --type image --watch cliphist store"
 spawn-at-startup "pkill waybar"
 spawn-at-startup "sh" "-c" "python3 $HOME/.config/niri/scripts/niri_tile_to_n.py -n 2"
 spawn-at-startup "$HOME/.config/niri/scripts/niri-sidebar" "listen"
-spawn-at-startup "niri-float-sticky"
+// spawn-at-startup "niri-float-sticky"
 
 // session saving and restoring, 
 // spawn-at-startup "$HOME/.config/niri/scripts/nirinit" "-c" "$HOME/.config/niri/scripts/nirinit-config/config.toml"
