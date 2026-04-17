@@ -1,6 +1,8 @@
 spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "wl-paste --type text --watch cliphist store"
 spawn-at-startup "wl-paste --type image --watch cliphist store"
+spawn-at-startup "cliphist wipe" // clear clipboard history on startup
+
 spawn-at-startup "pkill waybar"
 spawn-at-startup "sh" "-c" "python3 $HOME/.config/niri/scripts/niri_tile_to_n.py -n 2"
 spawn-at-startup "$HOME/.config/niri/scripts/niri-sidebar" "listen"
