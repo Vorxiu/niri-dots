@@ -82,3 +82,12 @@ window-rule {
     // block-out-from "screen-capture"
     block-out-from "screencast"
 }
+// turn off blur for maximized window
+// window-rule {
+//     is-maximized true
+//     opacity 1
+//     background-effect {
+//         blur false
+//         xray
+//     }
+// }
