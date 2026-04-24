@@ -121,7 +121,6 @@ alias cpv='rsync -ah --info=progress2'
 if [[ -z $SSH_CONNECTION && -z $CONTAINER_ID ]]; then
   zinit light MichaelAquilina/zsh-auto-notify
   zinit light aubreypwd/zsh-plugin-require
-  alias vim='nvim'
 fi
 
 if (( $+commands[eza] )); then
