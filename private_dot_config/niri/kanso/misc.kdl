@@ -7,14 +7,14 @@ cursor {
     hide-after-inactive-ms 30000
 }
 
-// switch-events {
-//     lid-close { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "lock"; }
-// }
+ switch-events {
+     lid-close { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "lock"; }
+ }
 overview {
     zoom 0.4
     // Optionally, disable the workspace shadows in the overview.
     workspace-shadow {
-        on
+        off
     }
 
 }
