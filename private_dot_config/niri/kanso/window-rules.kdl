@@ -55,6 +55,7 @@ window-rule {
     match title="Save File"
     match app-id="localsend"
     match app-id="it.ublue.Yafti"
+    match app-id="com.github.AppManager"
     // Firefox/Chrome picture-in-picture
     match title="^Picture-in-Picture$"
     match title="Picture in picture"
@@ -82,12 +83,16 @@ window-rule {
     // block-out-from "screen-capture"
     block-out-from "screencast"
 }
-// turn off blur for maximized window
-// window-rule {
-//     is-maximized true
-//     opacity 1
-//     background-effect {
-//         blur false
-//         xray
-//     }
-// }
+
+    // if you use steam you will probably like these
+window-rule {
+    match app-id="steam"
+    exclude title=r#"^[Ss]team$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}

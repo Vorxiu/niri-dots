@@ -62,7 +62,7 @@ layer-rule {
 }
 
 layout {
-    gaps 12
+    gaps 16
     shadow {
         on
         softness 30
