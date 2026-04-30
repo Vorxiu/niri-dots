@@ -1,6 +1,6 @@
 // Enable blur behind windows.
 window-rule {
-    opacity 0.87
+    opacity 0.9
     background-effect {
         blur true
     }
@@ -71,6 +71,7 @@ layout {
         color "#0007"
     }
 }
+
 window-rule {
     geometry-corner-radius 20
     clip-to-geometry true

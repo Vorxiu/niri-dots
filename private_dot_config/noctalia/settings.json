@@ -357,7 +357,7 @@
     "pinnedApps": [],
     "sortByMostUsed": true,
     "terminalCommand": "kitty -e",
-    "customLaunchPrefixEnabled": true,
+    "customLaunchPrefixEnabled": false,
     "customLaunchPrefix": "app2unit --",
     "viewMode": "grid",
     "showCategories": false,
