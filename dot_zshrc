@@ -12,16 +12,15 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 export AUTO_NOTIFY_THRESHOLD=60
 export AUTO_NOTIFY_ENABLE_SSH=0
-export FZF_DEFAULT_OPTS="--style full --preview 'fzf-preview({}) --bind 'focus:transform-header:file --brief {}'"
-export FZF_DEFAULT_OPTS="--preview 'bat --color=always --style=numbers --line-range=:50 {}'"
+export FZF_DEFAULT_OPTS="--style full --preview 'bat --color=always --style=numbers --line-range=:50 {}' --bind 'focus:transform-header:file --brief {}'"
 
 # Load completions
-autoload -Uz compinit && compinit
+# autoload -Uz compinit && compinit
 autoload -Uz zmv
 autoload -Uz add-zsh-hook
 
 # Add in Powerlevel10k
- zinit light romkatv/powerlevel10k
+zinit light romkatv/powerlevel10k
 
 # Add in zsh plugins
 zinit light Aloxaf/fzf-tab
@@ -34,17 +33,17 @@ zinit wait lucid for \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions
 
+zinit light dxrcy/zsh-history-substring-search
+zinit light redxtech/zsh-kitty
 
-zinit load redxtech/zsh-kitty
-
-zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
+zinit light hlissner/zsh-autopair
 
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
-zinit snippet OMZP::qrcode
+# zinit snippet OMZP::qrcode
 zinit snippet OMZP::colored-man-pages
 
 ls_after_cd() {
@@ -54,6 +53,7 @@ ls_after_cd() {
     ls --color --group-directories-first
   fi
 }
+
 add-zsh-hook chpwd ls_after_cd
 
 zinit cdreplay -q
@@ -62,7 +62,7 @@ zinit cdreplay -q
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keybindings
-bindkey -e
+# bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
@@ -77,7 +77,6 @@ setopt sharehistory
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
-setopt hist_ignore_dups
 setopt hist_find_no_dups
 setopt autocd
 setopt interactivecomments
@@ -93,10 +92,8 @@ setopt noshwordsplit
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
 zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
 
 zstyle ':completion:*:git-checkout:*' sort false
@@ -117,7 +114,7 @@ alias cat="bat"
 alias ls='ls --color --group-directories-first'
 alias cpv='rsync -ah --info=progress2'
 
-# if not in a container or connected over ssh 
+# if not in a container or connected over ssh
 if [[ -z $SSH_CONNECTION && -z $CONTAINER_ID ]]; then
   zinit light MichaelAquilina/zsh-auto-notify
   zinit light aubreypwd/zsh-plugin-require
@@ -129,12 +126,11 @@ if (( $+commands[eza] )); then
   zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -1 --color=never --hyperlink --group-directories-first --icons=auto $realpath'
 fi
 
-# Shell integrations  
+# Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh --cmd  cd)"
 
 if (( $+commands[brew] )); then
-
   HOMEBREW_COMMAND_NOT_FOUND_HANDLER="$(brew --repository)/Library/Homebrew/command-not-found/handler.sh"
   if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
     source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER";
