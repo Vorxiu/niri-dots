@@ -1,13 +1,22 @@
 # This example is contributed by Martin Enlund
 # based upon https://gitlab.gnome.org/GNOME/nautilus-python/-/blob/master/examples/open-terminal.py
 # modified for Kitty terminal
+# TODO: distrbox support
 
-from urllib.parse import unquote
-from gi.repository import Nautilus, GObject
-from typing import List
+from shutil import which
 from subprocess import Popen
+from typing import List
+from urllib.parse import unquote
 
-Terminal="kitty"
+from gi.repository import GObject, Nautilus
+
+Terminal = ""
+Terminals = ["ghostty", "kitty", "alacritty", "ptyxis", "wezterm"]
+for terminal in Terminals:
+    if which(terminal) is not None:
+        Terminal = terminal
+        break
+
 
 class OpenTerminalExtension(GObject.GObject, Nautilus.MenuProvider):
     def _open_terminal(self, file: Nautilus.FileInfo) -> None:
@@ -41,7 +50,7 @@ class OpenTerminalExtension(GObject.GObject, Nautilus.MenuProvider):
 
         item = Nautilus.MenuItem(
             name="NautilusPython::openterminal_file_item",
-            label="Open in Terminal",
+            label=f"Open in Terminal ({Terminal})",
         )
         item.connect("activate", self.menu_activate_cb, file)
 
