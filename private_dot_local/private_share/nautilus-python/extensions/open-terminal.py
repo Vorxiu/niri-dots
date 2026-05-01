@@ -10,12 +10,17 @@ from urllib.parse import unquote
 
 from gi.repository import GObject, Nautilus
 
+preferred_terminal = ""
 Terminal = ""
-Terminals = ["ghostty", "kitty", "alacritty", "ptyxis", "wezterm"]
-for terminal in Terminals:
-    if which(terminal) is not None:
-        Terminal = terminal
-        break
+Terminals = ["ghostty", "kitty", "alacritty", "ptyxis", "wezterm", "foot"]
+
+if preferred_terminal:
+    Terminal = preferred_terminal
+else:
+    for terminal in Terminals:
+        if which(terminal) is not None:
+            Terminal = terminal
+            break
 
 
 class OpenTerminalExtension(GObject.GObject, Nautilus.MenuProvider):
